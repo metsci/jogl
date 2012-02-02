@@ -1,5 +1,8 @@
 /*
+ * Original from JOGL by Sun Microsystems; modifications by Metron, Inc.
+ *
  * Copyright (c) 2006 Sun Microsystems, Inc. All Rights Reserved.
+ * Copyright (c) 2012 Metron, Inc.
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -39,8 +42,7 @@
 
 package com.sun.opengl.impl;
 
-import java.util.*;
-import javax.media.opengl.*;
+import javax.media.opengl.GL;
 
 /**
  * Tracks as closely as possible which OpenGL buffer object is bound
@@ -79,30 +81,23 @@ import javax.media.opengl.*;
 public class GLBufferStateTracker {
   private static final boolean DEBUG = Debug.debug("GLBufferStateTracker");
 
-  private static final Integer arrayBufferEnum        = new Integer(GL.GL_ARRAY_BUFFER);
-  private static final Integer elementArrayBufferEnum = new Integer(GL.GL_ELEMENT_ARRAY_BUFFER);
-  private static final Integer pixelPackBufferEnum    = new Integer(GL.GL_PIXEL_PACK_BUFFER);
-  private static final Integer pixelUnpackBufferEnum  = new Integer(GL.GL_PIXEL_UNPACK_BUFFER);
-  private static final Integer zero                   = new Integer(0);
-
-  // Maps binding targets to buffer objects. A null value indicates
+  // Maps binding targets to buffer objects. An absent value indicates
   // that the binding is unknown. A zero value indicates that it is
   // known that no buffer is bound to the target.
-  private Map/*<Integer,Integer>*/ bindingMap = new HashMap/*<Integer,Integer>*/();
+  private Int2IntOpenHashMap bindingMap = new Int2IntOpenHashMap();
 
   private int[] bufTmp = new int[1];
 
   public GLBufferStateTracker() {
     // Start with known unbound targets for known keys
-    bindingMap.put(arrayBufferEnum,        zero);
-    bindingMap.put(elementArrayBufferEnum, zero);
-    bindingMap.put(pixelPackBufferEnum,    zero);
-    bindingMap.put(pixelUnpackBufferEnum,  zero);
+    bindingMap.put(GL.GL_ARRAY_BUFFER,         0);
+    bindingMap.put(GL.GL_ELEMENT_ARRAY_BUFFER, 0);
+    bindingMap.put(GL.GL_PIXEL_PACK_BUFFER,    0);
+    bindingMap.put(GL.GL_PIXEL_UNPACK_BUFFER,  0);
   }
 
   public void setBoundBufferObject(int target, int buffer) {
-    Integer key = box(target);
-    bindingMap.put(key, box(buffer));
+    bindingMap.put(target, buffer);
   }
 
   /** Note: returns an unspecified value if the binding for the
@@ -110,9 +105,11 @@ public class GLBufferStateTracker {
       You must use isBoundBufferObjectKnown() to see whether the
       return value is valid. */
   public int getBoundBufferObject(int target, GL caller) {
-    Integer key = box(target);
-    Integer value = (Integer) bindingMap.get(key);
-    if (value == null) {
+    // The int return value can't be null ... so to check whether the key is in the map,
+    // call get() twice with different default-return-values. Iff you get the default-
+    // return-value back both times, the key is not in the map.
+    int value = bindingMap.get(target, -1);
+    if (value == -1 && bindingMap.get(target, -2) == -2) {
       // User probably either called glPushClientAttrib /
       // glPopClientAttrib or is querying an unknown target. See
       // whether we know how to fetch this state.
@@ -138,14 +135,17 @@ public class GLBufferStateTracker {
       }
       return 0;
     }
-    return value.intValue();
+    return value;
   }
 
   /** Indicates whether the binding state for the specified target is
       currently known. Should be called after getBoundBufferObject()
       because that method may change the answer for a given target. */
   public boolean isBoundBufferObjectKnown(int target) {
-    return (bindingMap.get(box(target)) != null);
+    // The int return value can't be null ... so to check whether the key is in the map,
+    // call get() twice with different default-return-values. Iff you get the default-
+    // return-value back both times, the key is not in the map.
+    return (bindingMap.get(target, -1) != -1 || bindingMap.get(target, -2) != -2);
   }
 
   /** Clears out the known/unknown state of the various buffer object
@@ -157,17 +157,5 @@ public class GLBufferStateTracker {
       code manipulating OpenGL state. */
   public void clearBufferObjectState() {
     bindingMap.clear();
-  }
-
-  // FIXME: could largely remove this and use Integer.valueOf() in JDK 5
-  private static Integer box(int key) {
-    switch (key) {
-      case 0:                          return zero;
-      case GL.GL_ARRAY_BUFFER:         return arrayBufferEnum;
-      case GL.GL_ELEMENT_ARRAY_BUFFER: return elementArrayBufferEnum;
-      case GL.GL_PIXEL_PACK_BUFFER:    return pixelPackBufferEnum;
-      case GL.GL_PIXEL_UNPACK_BUFFER:  return pixelUnpackBufferEnum;
-      default:                         return new Integer(key);
-    }
   }
 }
