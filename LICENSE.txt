@@ -72,10 +72,6 @@ the Simplified BSD 2-clause license:
    DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY,
    ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF
    SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-   
-   You acknowledge that this software is not designed or intended for use
-   in the design, construction, operation or maintenance of any nuclear
-   facility.
 
 The Int2IntOpenHashMap class is based on Sebastiano Vigna's fastutil
 library, covered by the Apache License, v2.0:
