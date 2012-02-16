@@ -1,36 +1,47 @@
-This modified version of JOGL is released by Metron, Inc., under the
-Apache License, v2.0:
+The majority of the JOGL code is licensed under the Simplified BSD
+2-clause license, but it contains other licensed material as well. Below
+is a detailed list of licenses used in this project.
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
- 
-   http://www.apache.org/licenses/LICENSE-2.0
- 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
 
-The Int2IntOpenHashMap class is based on Sebastiano Vigna's fastutil
-library, used under the Apache License, v2.0:
+The JOGL source tree contains code from Sun Microsystems, Inc. which is
+covered by the Simplified BSD 2-clause license:
 
-   Copyright (C) 2002-2011 Sebastiano Vigna 
+   Copyright (c) 2003-2007 Sun Microsystems, Inc. All Rights Reserved.
  
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
- 
-   http://www.apache.org/licenses/LICENSE-2.0
- 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are
+   met:
+   
+   - Redistribution of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   
+   - Redistribution in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+   
+   Neither the name of Sun Microsystems, Inc. or the names of
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+   
+   This software is provided "AS IS," without a warranty of any kind. ALL
+   EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
+   INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED. SUN
+   MICROSYSTEMS, INC. ("SUN") AND ITS LICENSORS SHALL NOT BE LIABLE FOR
+   ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+   DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN OR
+   ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR FOR
+   DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
+   DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY,
+   ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF
+   SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+   
+   You acknowledge that this software is not designed or intended for use
+   in the design, construction, operation or maintenance of any nuclear
+   facility.
 
-Metron, Inc.'s modifications to JOGL are released under the BSD license:
+The JOGL source tree contains code from Metron, Inc., which is covered by
+the Simplified BSD 2-clause license:
 
    Copyright (c) 2012 Metron, Inc. All Rights Reserved.
  
@@ -66,42 +77,39 @@ Metron, Inc.'s modifications to JOGL are released under the BSD license:
    in the design, construction, operation or maintenance of any nuclear
    facility.
 
-The majority of the JOGL code is licensed under the BSD license. The full
-license terms follow:
+The Int2IntOpenHashMap class is based on Sebastiano Vigna's fastutil
+library, covered by the Apache License, v2.0:
 
-   Copyright (c) 2003-2007 Sun Microsystems, Inc. All Rights Reserved.
+   Copyright (C) 2002-2011 Sebastiano Vigna 
  
-   Redistribution and use in source and binary forms, with or without
-   modification, are permitted provided that the following conditions are
-   met:
-   
-   - Redistribution of source code must retain the above copyright
-     notice, this list of conditions and the following disclaimer.
-   
-   - Redistribution in binary form must reproduce the above copyright
-     notice, this list of conditions and the following disclaimer in the
-     documentation and/or other materials provided with the distribution.
-   
-   Neither the name of Sun Microsystems, Inc. or the names of
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
-   
-   This software is provided "AS IS," without a warranty of any kind. ALL
-   EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES,
-   INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A
-   PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED. SUN
-   MICROSYSTEMS, INC. ("SUN") AND ITS LICENSORS SHALL NOT BE LIABLE FOR
-   ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
-   DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN OR
-   ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR FOR
-   DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE
-   DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY,
-   ARISING OUT OF THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF
-   SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-   
-   You acknowledge that this software is not designed or intended for use
-   in the design, construction, operation or maintenance of any nuclear
-   facility.
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+ 
+   http://www.apache.org/licenses/LICENSE-2.0
+ 
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+Metron, Inc.'s modifications to Int2IntOpenHashMap are covered by the
+Apache License, v2.0:
+
+   Copyright (C) 2012 Metron, Inc.
+ 
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+ 
+   http://www.apache.org/licenses/LICENSE-2.0
+ 
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 
 The JOGL source tree contains code ported from the OpenGL sample
 implementation by Silicon Graphics, Inc. This code is licensed under
@@ -150,7 +158,6 @@ paragraphs below after "NOTE:"):
    was created using the OpenGL(R) version 1.2.1 Sample Implementation
    published by SGI, but has not been independently verified as being
    compliant with the OpenGL(R) version 1.2.1 Specification.
-
 
 The JOGL source tree contains code from the LWJGL project which is
 similarly covered by the BSD license:
